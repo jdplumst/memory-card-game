@@ -8,11 +8,22 @@ function App() {
   const [score, setScore] = useState<number>(0);
   const [bestScore, setBestScore] = useState<number>(0);
 
+  function increaseScore() {
+    setScore(score + 1);
+    if (score >= bestScore) {
+      setBestScore(bestScore + 1);
+    }
+  }
+
+  function resetScore() {
+    setScore(0);
+  }
+
   return (
     <div className="App min-h-screen bg-red-300">
       <Header />
       <Scoreboard score={score} bestScore={bestScore} />
-      <Gameboard />
+      <Gameboard increaseScore={increaseScore} resetScore={resetScore} />
     </div>
   );
 }

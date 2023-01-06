@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 type CardProps = {
     id: number
+    checkGuessed: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 
 function Card(props: CardProps) {
@@ -18,8 +19,8 @@ function Card(props: CardProps) {
     });
 
     return (
-        <div className="flex justify-center border-solid border-4 border-black w-full hover:cursor-pointer">
-            <img src={pokeImg} className='h-28'></img>
+        <div onClick={props.checkGuessed} id={props.id.toString()} className="flex justify-center border-solid border-4 border-black w-full hover:cursor-pointer">
+            <img src={pokeImg} id={props.id.toString()} className='h-28'></img>
         </div>
     )
 }
