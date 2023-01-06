@@ -1,4 +1,4 @@
-LIVE PREVIEW LINK: jdplumst.github.io/memory-card-game
+LIVE PREVIEW LINK: https://jdplumst.github.io/memory-card-game/
 
 This is a memory card game created using React, TypeScript, and TailwindCSS. This app also fetches data from PokéAPI.
 
