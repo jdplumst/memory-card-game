@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Gameboard from './components/Gameboard';
 import Header from './components/Header';
 import Scoreboard from './components/Scoreboard';
@@ -7,6 +7,10 @@ import './styles/styles.css';
 function App() {
   const [score, setScore] = useState<number>(0);
   const [bestScore, setBestScore] = useState<number>(0);
+
+  useEffect(() => {
+    document.title = 'Memory Card Game';
+  })
 
   function increaseScore() {
     setScore(score + 1);
