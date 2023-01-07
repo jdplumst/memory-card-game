@@ -40,7 +40,7 @@ function Gameboard(props: GameboardProps) {
     return (
         <div className="grid grid-cols-4 justify-items-center gap-0.5 mx-5 mt-10 pb-10">
             {x.map((item, index) => {
-                return <Card key={index} id={assignId()} checkGuessed={checkGuessed} /> 
+                return <Card key={Math.random()} id={assignId()} checkGuessed={checkGuessed} /> 
             })}
         </div>
     )

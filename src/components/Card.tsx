@@ -12,11 +12,17 @@ function Card(props: CardProps) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${props.id}/`);
         const pokeData = await response.json();
         setPokeImg(pokeData.sprites.other.home.front_default);
+        localStorage.setItem(props.id.toString(), pokeData.sprites.other.home.front_default);
     }
 
     useEffect(() => {
-        getPokemon();
-    });
+        let x = (localStorage.getItem(props.id.toString()) || ''); 
+        if (x === '') {
+            getPokemon();
+        } else {
+            setPokeImg(x);
+        }
+    }, []);
 
     return (
         <div onClick={props.checkGuessed} id={props.id.toString()} className="flex justify-center border-solid border-4 border-black w-full hover:cursor-pointer">
